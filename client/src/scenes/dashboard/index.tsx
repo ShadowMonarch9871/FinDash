@@ -1,9 +1,9 @@
-import { Box, useMediaQuery, useTheme } from '@mui/material'
+import { Box, useMediaQuery } from "@mui/material";
+import Row1 from "./Row1";
+import Row2 from "./Row2";
+import Row3 from "./Row3";
 
-
-type Props = {}
-
-const gridTemplateLargeScreens=`
+const gridTemplateLargeScreens = `
 "a b c"
 "a b c"
 "a b c"
@@ -14,8 +14,8 @@ const gridTemplateLargeScreens=`
 "g h i"
 "g h j"
 "g h j"
-`
-const gridTemplateSmallScreens=`
+`;
+const gridTemplateSmallScreens = `
 "a"
 "a"
 "a"
@@ -43,35 +43,35 @@ const gridTemplateSmallScreens=`
 "i"
 "j"
 "j"
-`
-const Dashboard = (props: Props) => {
-  const isAboveMediumScreen=useMediaQuery("(min-width:1200px)")
-    const{palette}=useTheme();
+`;
+const Dashboard = () => {
+  const isAboveMediumScreen = useMediaQuery("(min-width:1200px)");
+
   return (
-    <Box width="100%"height="100%" display="grid" gap="1.5rem" sx={
-      isAboveMediumScreen?{
-        gridTemplateColumns:"repeat(3,minmax(370px,1fr))",
-        gridTemplateRows:"repeat(10,minmax(60px,1fr))",
-        gridTemplateAreas:gridTemplateLargeScreens
-    }:{
-      gridTemplateAreas:gridTemplateSmallScreens,
-      gridAutoColumns:"1fr",
-      gridAutoRows:"80px"
-    }}>
-    
-   <Box gridArea="a" bgcolor="#fff"></Box>
-   <Box gridArea="b" bgcolor="#fff"></Box>
-   <Box gridArea="c" bgcolor="#fff"></Box>
-   <Box gridArea="d" bgcolor="#fff"></Box>
-   <Box gridArea="e" bgcolor="#fff"></Box>
-   <Box gridArea="f" bgcolor="#fff"></Box>
-   <Box gridArea="g" bgcolor="#fff"></Box>
-   <Box gridArea="h" bgcolor="#fff"></Box>
-   <Box gridArea="i" bgcolor="#fff"></Box>
-   <Box gridArea="j" bgcolor="#fff"></Box>
-
+    <Box
+      width="100%"
+      height="100%"
+      display="grid"
+      gap="1.5rem"
+      sx={
+        isAboveMediumScreen
+          ? {
+              gridTemplateColumns: "repeat(3,minmax(370px,1fr))",
+              gridTemplateRows: "repeat(10,minmax(60px,1fr))",
+              gridTemplateAreas: gridTemplateLargeScreens,
+            }
+          : {
+              gridTemplateAreas: gridTemplateSmallScreens,
+              gridAutoColumns: "1fr",
+              gridAutoRows: "80px",
+            }
+      }
+    >
+      <Row1 />
+      <Row2 />
+      <Row3 />
     </Box>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
