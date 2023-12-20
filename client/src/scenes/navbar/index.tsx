@@ -8,7 +8,7 @@ import PixIcon from "@mui/icons-material/Pix";
 
 // @ts-expect-ignore
 
-const Navbar = (props: Props) => {
+const Navbar = () => {
   const { palette } = useTheme();
   const [selected, setSelected] = useState("dashboard");
   return (
