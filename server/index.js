@@ -12,6 +12,7 @@ import productRoutes from "./routes/product.js";
 import Product from "./models/Product.js";
 import transactionRoutes from "./routes/transaction.js";
 import Transaction from "./models/Transaction.js";
+import path from "path";
 
 dotenv.config();
 const app = express();
@@ -44,6 +45,12 @@ mongoose
     // KPI.insertMany(kpis);
     // Product.insertMany(products);
     // Transaction.insertMany(transactions);
-
   })
   .catch((error) => console.log(`${error} did not connect`));
+
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, "/client/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
+});
