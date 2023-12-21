@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "build": "npm install --force mongoose-currency && npm i "
+    "build": "npm i express body-parser cors dotenv helmet morgan mongoose mongoose-currency"
   },
   "keywords": [],
   "author": "",
