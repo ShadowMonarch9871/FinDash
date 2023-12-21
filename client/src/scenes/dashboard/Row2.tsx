@@ -63,7 +63,7 @@ const Row2 = () => {
         };
       })
     );
-  }, [operationalData]);
+  }, [productData]);
   return (
     <>
       <DashboardBox gridArea="d">
